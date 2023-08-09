@@ -13,7 +13,7 @@
       <video id="video" style="height:100%; width:100%; position:absolute; bottom:0; left:0" src=""/>
    </body>
 </html> -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>AAMP playback in WPE browser using UVE APIs</title>
@@ -36,7 +36,63 @@
     <button onclick="playVideo()">Play</button>
     <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" type="video/aamp"></video>
 </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AAMP playback in WPE browser using UVE APIs</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        video {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+        var player;
+
+        window.onload = function() {
+            player = new AAMPMediaPlayer();
+        }
+
+        function playVideo() {
+            if (player) {
+                player.load(url);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="playVideo()">Play</button>
+    <video type="video/aamp"></video>
+</body>
 </html>
+
 
 
 <!-- <!DOCTYPE html>
