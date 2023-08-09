@@ -12,6 +12,12 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+        #video-container {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
 
         button {
             background-color: #007bff;
@@ -21,35 +27,27 @@
             font-size: 16px;
             cursor: pointer;
         }
+        
 
         button:focus {
             outline: none;
         }
 
-        video {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
     </style>
    <script>
      
         function playVideo() {
-            var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-            window.onload = function() {
+            document.body.style.backgroundColor = "red";
+            var url = "https://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+
             var player = new AAMPMediaPlayer();
             player.load(url);
+            
             //document.body.style.backgroundColor = "lightgray";
             
         }
-    }
-        // }
-        //     document.getElementById("playButton").addEventListener("click", function() {
-        //         playVideo();
-        //         document.body.style.backgroundColor = "lightgray";
-        //     });
+
+        
             document.addEventListener("keydown", function(event) {
                 if (event.keyCode === 13) { // Enter key
                     playVideo(); // Call playVideo() function
@@ -64,8 +62,8 @@
 </head>
 <body>
     
-        <div class="video-card video-container"></div>
-               <button onclick="playVideo()"id="playButton" class="play-button">Play</button> 
+        <div id="video-container"></div>
+               <button onclick="playVideo()">Play</button> 
         </div>
          
     
