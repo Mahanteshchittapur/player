@@ -79,22 +79,21 @@
       var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
 
         function playVideo() {
+            window.onload = function() {
             var player = new AAMPMediaPlayer();
             player.load(url);
-            // document.getElementById("status").textContent = "Video playing...";
+           document.body.style.backgroundColor = "lightgray";
+            
         }
-
-        window.onload = function() {
+        }
             document.getElementById("playButton").addEventListener("click", function() {
                 playVideo();
-                document.querySelector(".movie-title").style.color = "blue"; // Change color to blue
+                document.body.style.backgroundColor = "lightgray";
             });
-
-            // Listen for the Enter key press event
             document.addEventListener("keydown", function(event) {
                 if (event.keyCode === 13) { // Enter key
                     playVideo(); // Call playVideo() function
-                    document.querySelector(".movie-title").style.color = "blue"; // Change color to blue
+                    document.body.style.backgroundColor = "lightgray"; // Change color to blue
                 }
             });
         };
@@ -103,8 +102,13 @@
     </script>
 </head>
 <body>
-   <button id="playButton" >Play</button>
-    <video type="video/aamp"></video>
+    <div class="video-card-container">
+        <div class="video-card video-container">
+<!--          <video id="videoPlayer" class="dash-video" autoplay muted></video> -->
+               <button id="playButton" class="play-button">Play</button> 
+        </div>
+         
+    </div>
 </body>
 </html>
 
