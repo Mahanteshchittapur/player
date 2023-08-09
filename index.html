@@ -90,6 +90,25 @@
         //     }
         // }
         }
+        document.addEventListener("keydown", function(event) {
+            switch (event.key) {
+                case "ArrowUp":
+                case "ArrowDown":
+                case "ArrowLeft":
+                case "ArrowRight":
+                    // Handle directional navigation here
+                    break;
+                case "Enter":
+                    // Trigger play button click when Enter key is pressed
+                    var playButton = document.getElementById("playButton");
+                    if (playButton) {
+                        playButton.click();
+                    }
+                    break;
+                default:
+                   break;
+            }
+        });
     </script>
 </head>
 <body>
