@@ -72,47 +72,25 @@
             left: 0;
         }
     </style>
-    <script>
+   <script>
         var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-       
 
         function playVideo() {
-           window.onload = function() {
-         var player = new AAMPMediaPlayer();
-         player.load(url);
-      }
-        //    var  player = new AAMPMediaPlayer();
-        //     if (player) {
-        //        window.onload = function() {
-        //      // var  player = new AAMPMediaPlayer();
-               
-        //         player.load(url);
-        //     }
-        // }
+            var player = new AAMPMediaPlayer();
+            player.load(url);
+            document.getElementById("status").textContent = "Video playing...";
         }
+
+        // Listen for the Enter key press event
         document.addEventListener("keydown", function(event) {
-            switch (event.key) {
-                case "ArrowUp":
-                case "ArrowDown":
-                case "ArrowLeft":
-                case "ArrowRight":
-                    // Handle directional navigation here
-                    break;
-                case "Enter":
-                    // Trigger play button click when Enter key is pressed
-                    var playButton = document.getElementById("playButton");
-                    if (playButton) {
-                        playButton.click();
-                    }
-                    break;
-                default:
-                   break;
+            if (event.keyCode === 13) { // Enter key
+                playVideo(); // Call playVideo() function
             }
         });
     </script>
 </head>
 <body>
-    <button onclick="playVideo()">Play</button>
+<!--     <button onclick="playVideo()">Play</button> -->
     <video type="video/aamp"></video>
 </body>
 </html>
