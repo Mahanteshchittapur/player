@@ -37,12 +37,13 @@
    <script>
      
         function playVideo() {
-            document.body.style.backgroundColor = "red";
+            //document.body.style.backgroundColor = "red";
             var url = "https://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
 
+            window.onload = function() {
             var player = new AAMPMediaPlayer();
             player.load(url);
-            
+      }
             //document.body.style.backgroundColor = "lightgray";
             
         }
