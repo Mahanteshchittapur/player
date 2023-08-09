@@ -76,24 +76,29 @@
         }
     </style>
    <script>
-        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+      var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
 
         function playVideo() {
             var player = new AAMPMediaPlayer();
             player.load(url);
-           // document.getElementById("status").textContent = "Video playing...";
+            // document.getElementById("status").textContent = "Video playing...";
         }
 
-        // Listen for the Enter key press event
-      document.getElementById("playButton").addEventListener("click", function() {
+        window.onload = function() {
+            document.getElementById("playButton").addEventListener("click", function() {
                 playVideo();
-                movieTitle.style.color = "blue"; // Change color to blue
+                document.querySelector(".movie-title").style.color = "blue"; // Change color to blue
             });
-        document.addEventListener("keydown", function(event) {
-            if (event.keyCode === 13) { // Enter key
-                playVideo(); // Call playVideo() function
-            }
-        });
+
+            // Listen for the Enter key press event
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode === 13) { // Enter key
+                    playVideo(); // Call playVideo() function
+                    document.querySelector(".movie-title").style.color = "blue"; // Change color to blue
+                }
+            });
+        };
+      
       
     </script>
 </head>
