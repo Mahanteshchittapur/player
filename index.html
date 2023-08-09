@@ -1,44 +1,3 @@
-<!-- <html>
-   <head>
-      <title>AAMP playback in WPE browser using HTML5 video tag</title>
-   </head>
-   <script>var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-      window.onload = function() { 
-         var video = document.getElementById("video");
-         video.src = url;
-         video.play(); 
-      }
-   </script>
-   <body">
-      <video id="video" style="height:100%; width:100%; position:absolute; bottom:0; left:0" src=""/>
-   </body>
-</html> -->
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>AAMP playback in WPE browser using UVE APIs</title>
-    <script>
-        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-        var player;
-
-        window.onload = function() {
-            player = new AAMPMediaPlayer();
-        }
-
-        function playVideo() {
-            if (player) {
-                player.load(url);
-            }
-        }
-    </script>
-</head>
-<body>
-    <button onclick="playVideo()">Play</button>
-    <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" type="video/aamp"></video>
-</body>
-</html> -->
-
-
 
 <!DOCTYPE html>
 <html>
@@ -76,39 +35,39 @@
         }
     </style>
    <script>
-      var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-
+     
         function playVideo() {
+            var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
             window.onload = function() {
             var player = new AAMPMediaPlayer();
             player.load(url);
-           document.body.style.backgroundColor = "lightgray";
+            //document.body.style.backgroundColor = "lightgray";
             
         }
-        }
-            document.getElementById("playButton").addEventListener("click", function() {
-                playVideo();
-                document.body.style.backgroundColor = "lightgray";
-            });
+    }
+        // }
+        //     document.getElementById("playButton").addEventListener("click", function() {
+        //         playVideo();
+        //         document.body.style.backgroundColor = "lightgray";
+        //     });
             document.addEventListener("keydown", function(event) {
                 if (event.keyCode === 13) { // Enter key
                     playVideo(); // Call playVideo() function
-                    document.body.style.backgroundColor = "lightgray"; // Change color to blue
+                    //document.body.style.backgroundColor = "lightgray"; // Change color to blue
                 }
             });
-        };
+        
+
       
       
     </script>
 </head>
 <body>
-    <div class="video-card-container">
-        <div class="video-card video-container">
-<!--          <video id="videoPlayer" class="dash-video" autoplay muted></video> -->
-               <button id="playButton" class="play-button">Play</button> 
+    
+        <div class="video-card video-container"></div>
+               <button onclick="playVideo()"id="playButton" class="play-button">Play</button> 
         </div>
          
-    </div>
+    
 </body>
 </html>
-
