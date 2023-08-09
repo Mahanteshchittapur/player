@@ -78,19 +78,24 @@
         function playVideo() {
             var player = new AAMPMediaPlayer();
             player.load(url);
-            document.getElementById("status").textContent = "Video playing...";
+           // document.getElementById("status").textContent = "Video playing...";
         }
 
         // Listen for the Enter key press event
+      document.getElementById("playButton").addEventListener("click", function() {
+                playVideo();
+                movieTitle.style.color = "blue"; // Change color to blue
+            });
         document.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) { // Enter key
                 playVideo(); // Call playVideo() function
             }
         });
+      
     </script>
 </head>
 <body>
-<!--     <button onclick="playVideo()">Play</button> -->
+   <button id="playButton" >Play</button>
     <video type="video/aamp"></video>
 </body>
 </html>
