@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
    <head>
       <title>AAMP playback in WPE browser using HTML5 video tag</title>
    </head>
@@ -12,7 +12,32 @@
    <body">
       <video id="video" style="height:100%; width:100%; position:absolute; bottom:0; left:0" src=""/>
    </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AAMP playback in WPE browser using UVE APIs</title>
+    <script>
+        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+        var player;
+
+        window.onload = function() {
+            player = new AAMPMediaPlayer();
+        }
+
+        function playVideo() {
+            if (player) {
+                player.load(url);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="playVideo()">Play</button>
+    <video style="height:100%; width:100%; position:absolute; bottom:0; left:0" type="video/aamp"></video>
+</body>
 </html>
+
 
 <!-- <!DOCTYPE html>
 <html>
