@@ -46,13 +46,12 @@
 
         window.onload = function() {
             player = new AAMPMediaPlayer();
+            videoElement = document.getElementById("video");
+            videoElement.src = url;
         }
 
         function toggleAAMPVideo() {
-            videoElement = document.getElementById("video");
-            
             if (!isVideoPlaying) {
-                videoElement.src = url;
                 videoElement.currentTime = playbackPosition; // Set playback position
                 videoElement.play();
                 videoElement.style.display = "block";
