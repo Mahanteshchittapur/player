@@ -35,7 +35,7 @@
        video {
             max-width: 100%;
             height: auto;
-            display: block;
+            display: none;
         }
     </style>
    <script>
@@ -48,6 +48,7 @@
             var video = document.getElementById("video");
             video.src = url;
             video.play();
+            video.style.display = "block";
             
             // Request full-screen mode for the video element
             if (video.requestFullscreen) {
