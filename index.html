@@ -40,30 +40,57 @@
     </style>
    <script>
         var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+        var videoElement;
+        var isVideoPlaying = false;
+
         window.onload = function() {
             player = new AAMPMediaPlayer();
         }
 
-           function loadAAMPVideo() {
-            var video = document.getElementById("video");
-            video.src = url;
-            video.play();
-            video.style.display = "block";
+        function toggleAAMPVideo() {
+            videoElement = document.getElementById("video");
             
-           
+            if (!isVideoPlaying) {
+                videoElement.src = url;
+                videoElement.play();
+                videoElement.style.display = "block";
+                isVideoPlaying = true;
+            } else {
+                videoElement.pause();
+                isVideoPlaying = false;
+            }
         }
 
         document.addEventListener("keydown", function(event) {
             if (event.keyCode === 13) { // Enter key
-                loadAAMPVideo();
+                toggleAAMPVideo();
             }
         });
+        // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+        // window.onload = function() {
+        //     player = new AAMPMediaPlayer();
+        // }
+
+        //    function loadAAMPVideo() {
+        //     var video = document.getElementById("video");
+        //     video.src = url;
+        //     video.play();
+        //     video.style.display = "block";
+            
+           
+        // }
+
+        // document.addEventListener("keydown", function(event) {
+        //     if (event.keyCode === 13) { // Enter key
+        //         loadAAMPVideo();
+        //     }
+        // });
       
     </script>
 </head>
 <body>
    <div id="container">
-        <button id="playButton">Play</button>
+        <button id="playButton" onclick="toggleAAMPVideo()">Play</button>
         <video id="video" style="display:none;" style="height:100%; width:100%; position:absolute; bottom:0; left:0" controls src=""/>
    </div>
 </body>
