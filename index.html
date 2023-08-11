@@ -39,81 +39,61 @@
         }
     </style>
    <script>
-      var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-        var videoElement;
-        var isVideoPlaying = false;
-        var playbackPosition = 0; // Store playback position
+        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+    var player; // Declare the player variable
 
-        window.onload = function() {
-            player = new AAMPMediaPlayer();
-            videoElement = document.getElementById("video");
-            videoElement.src = url;
-        }
+    window.onload = function() {
+        player = new AAMPMediaPlayer();
+    }
 
-        function toggleAAMPVideo() {
-            if (!isVideoPlaying) {
-                videoElement.currentTime = playbackPosition; // Set playback position
-                videoElement.play();
-                videoElement.style.display = "block";
-                isVideoPlaying = true;
-            } else {
-                playbackPosition = videoElement.currentTime; // Store current playback position
-                videoElement.pause();
-                isVideoPlaying = false;
-            }
-        }
+    function loadAAMPVideo() {
+        var video = document.getElementById("video");
+        video.src = url;
+        video.play();
+        video.style.display = "block";
+    }
 
-        document.addEventListener("keydown", function(event) {
-            if (event.keyCode === 13) { // Enter key
-                toggleAAMPVideo();
-            }
+    // document.addEventListener("keydown", function(event) {
+    //     if (event.keyCode === 13) { // Enter key
+    //         loadAAMPVideo();
+    //     }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var playButton = document.getElementById("playButton");
+        playButton.addEventListener("click", function() {
+            loadAAMPVideo();
         });
-        // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-        // var videoElement;
-        // var isVideoPlaying = false;
+    });
+      // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+      //   var videoElement;
+      //   var isVideoPlaying = false;
+      //   var playbackPosition = 0; // Store playback position
 
-        // window.onload = function() {
-        //     player = new AAMPMediaPlayer();
-        // }
+      //   window.onload = function() {
+      //       player = new AAMPMediaPlayer();
+      //       videoElement = document.getElementById("video");
+      //       videoElement.src = url;
+      //   }
 
-        // function toggleAAMPVideo() {
-        //     videoElement = document.getElementById("video");
-            
-        //     if (!isVideoPlaying) {
-        //         videoElement.src = url;
-        //         videoElement.play();
-        //         videoElement.style.display = "block";
-        //         isVideoPlaying = true;
-        //     } else {
-        //         videoElement.pause();
-        //         isVideoPlaying = false;
-        //     }
-        // }
+      //   function toggleAAMPVideo() {
+      //       if (!isVideoPlaying) {
+      //           videoElement.currentTime = playbackPosition; // Set playback position
+      //           videoElement.play();
+      //           videoElement.style.display = "block";
+      //           isVideoPlaying = true;
+      //       } else {
+      //           playbackPosition = videoElement.currentTime; // Store current playback position
+      //           videoElement.pause();
+      //           isVideoPlaying = false;
+      //       }
+      //   }
 
-        // document.addEventListener("keydown", function(event) {
-        //     if (event.keyCode === 13) { // Enter key
-        //         toggleAAMPVideo();
-        //     }
-        // });
-        // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-        // window.onload = function() {
-        //     player = new AAMPMediaPlayer();
-        // }
-
-        //    function loadAAMPVideo() {
-        //     var video = document.getElementById("video");
-        //     video.src = url;
-        //     video.play();
-        //     video.style.display = "block";
-            
-           
-        // }
-
-        // document.addEventListener("keydown", function(event) {
-        //     if (event.keyCode === 13) { // Enter key
-        //         loadAAMPVideo();
-        //     }
-        // });
+      //   document.addEventListener("keydown", function(event) {
+      //       if (event.keyCode === 13) { // Enter key
+      //           toggleAAMPVideo();
+      //       }
+       
       
     </script>
 </head>
