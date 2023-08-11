@@ -39,8 +39,16 @@
         }
     </style>
    <script>
-        var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
-         var player; // Declare the player variable
+       <!DOCTYPE html>
+<html>
+<head>
+<title>Play AAMP Video on Enter Key</title>
+<style>
+    /* Your existing CSS styles */
+</style>
+<script>
+    var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+    var player; // Declare the player variable
 
     window.onload = function() {
         player = new AAMPMediaPlayer();
@@ -53,18 +61,51 @@
         video.style.display = "block";
     }
 
-      document.addEventListener("keydown", function(event) {
+    document.addEventListener("keydown", function(event) {
         if (event.keyCode === 13) { // Enter key
-            loadAAMPVideo();
+            if (document.activeElement.id === "playButton") {
+                loadAAMPVideo();
+            }
         }
     });
+</script>
+</head>
+<body>
+<div id="container">
+    <button id="playButton">Play</button>
+    <button id="playButton2">PlAY</button>
+    <video id="video" style="display:none; height:100%; width:100%; position:absolute; bottom:0; left:0" controls src=""/>
+</div>
+</body>
+</html>
 
-    document.addEventListener("DOMContentLoaded", function() {
-        var playButton = document.getElementById("playButton");
-        playButton.addEventListener("click", function() {
-            loadAAMPVideo();
-        });
-    });
+       //latest
+    //     var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
+    //      var player; // Declare the player variable
+
+    // window.onload = function() {
+    //     player = new AAMPMediaPlayer();
+    // }
+
+    // function loadAAMPVideo() {
+    //     var video = document.getElementById("video");
+    //     video.src = url;
+    //     video.play();
+    //     video.style.display = "block";
+    // }
+
+    //   document.addEventListener("keydown", function(event) {
+    //     if (event.keyCode === 13) { // Enter key
+    //         loadAAMPVideo();
+    //     }
+    // });
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     var playButton = document.getElementById("playButton");
+    //     playButton.addEventListener("click", function() {
+    //         loadAAMPVideo();
+    //     });
+    // });
       // var url = "aamps://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd";
       //   var videoElement;
       //   var isVideoPlaying = false;
